@@ -8,17 +8,10 @@
       </div>
     </transition>
     <WeatherAnimate />
-    <div class="footer-text">
-      <a href="https://github.com/dogukanbatal/vue-weather-app" target="_blank" class="link">
-        <GithubIcon size="1x"></GithubIcon>
-        <span>Github Repository</span>
-      </a>
-    </div>
   </div>
 </template>
 
 <script>
-import { GithubIcon } from "vue-feather-icons";
 import WeatherSearch from "@/components/WeatherSearch";
 import WeatherMain from "@/components/WeatherMain";
 import WeatherInfo from "@/components/WeatherInfo";
@@ -31,7 +24,6 @@ export default {
     WeatherMain,
     WeatherInfo,
     WeatherAnimate,
-    GithubIcon
   },
   computed: {
     ...mapGetters(["isSearched"])
@@ -109,28 +101,4 @@ body {
   }
 }
 
-.footer-text {
-  position: absolute;
-  bottom: 30px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  text-align: center;
-  .link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: #fff;
-    font-weight: 500;
-    text-shadow: 0 2px 3px fade(black, 20);
-    span {
-      font-size: 18px;
-      margin-left: 5px;
-    }
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
 </style>

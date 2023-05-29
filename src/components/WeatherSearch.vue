@@ -5,10 +5,11 @@
       placeholder="Search City"
       class="search-control"
       v-model.trim="search"
-      @keydown.enter="getData"
+      @keydown.enter="getData" 
+     
     />
     <span class="country" v-if="isSearched">({{getWeatherCountry}})</span>
-    <div class="error" v-if="getError">No results found! fix it try again.</div>
+    <div class="error" v-if="getError">Ничего не найдено! Попробуйте сменить город.</div>
   </div>
 </template>
 

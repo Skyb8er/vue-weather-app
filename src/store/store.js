@@ -7,8 +7,8 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     apiBase: "https://api.openweathermap.org/data/2.5/",
-    apiKey: "YOUR_API_KEY",   // Create Api Key from https://openweathermap.org
-    defaultSearch: "istanbul",
+    apiKey: "2c7aec924f5169a2795f589812941078",   
+    defaultSearch: "Благовещенск",
     search: "",
     isError: false,
     weatherData: {},
@@ -58,7 +58,7 @@ const store = new Vuex.Store({
       try {
         commit("SET_SEARCH", search);
         const response = await axios.get(
-          `${state.apiBase}weather?q=${search}&units=metric&APPID=${state.apiKey}`
+          `${state.apiBase}weather?q=${search}&units=metric&APPID=${state.apiKey}&lang=ru`
         );
         const newWeatherData = {
           name: response.data.name,

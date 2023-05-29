@@ -1,7 +1,7 @@
 <template>
   <div class="weather-main">
     <div class="weather-feelsLike">
-      Feels like
+      Ощущается как:
       <strong>
         {{getWeatherMain.feelsLike | round}}
         <sup>&deg;</sup>
@@ -15,7 +15,7 @@
       <span>{{getWeatherMain.temp | round}}</span>
       <sup>&deg;</sup>
     </div>
-    <div class="weather-description">{{getWeatherMain.description}}</div>
+    <div class="weather-description">{{normalizeDescription}}</div>
     <p></p>
   </div>
 </template>
@@ -29,7 +29,11 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["getWeatherMain"])
+    ...mapGetters(["getWeatherMain"]),
+    normalizeDescription() {
+      const [firstChar] = this.getWeatherMain.description.toUpperCase();
+      return `${firstChar}${this.getWeatherMain.description.slice(1)}`;
+    }
   }
 };
 </script>
@@ -82,7 +86,7 @@ export default {
       &-description {
         font-size: 18px;
         color: var(--darkColor);
-        text-transform: capitalize;
+
         sup {
           position: relative;
           top: 5px;
